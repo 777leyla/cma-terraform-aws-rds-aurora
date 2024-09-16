@@ -331,8 +331,8 @@ resource "aws_security_group" "this" {
   name_prefix = var.security_group_use_name_prefix ? "${local.security_group_name}-" : null
   vpc_id      = var.vpc_id
   description = coalesce(var.security_group_description, "Control traffic to/from RDS Aurora ${var.name}")
-ingress []
-  egress []
+ingress {}
+  egress {}
   tags = merge(var.tags, var.security_group_tags, { Name = local.security_group_name })
 
   lifecycle {
